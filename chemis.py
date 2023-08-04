@@ -22,8 +22,7 @@ name = "mole"
 AllChem.ComputeGasteigerCharges(mol)
 contribs = [mol.GetAtomWithIdx(i).GetDoubleProp('_GasteigerCharge') for i in range(mol.GetNumAtoms())]
 fig = SimilarityMaps.GetSimilarityMapFromWeights(mol, contribs, colorMap='jet', contourLines=10)
-contribs1 = rdMolDescriptors._CalcCrippenContribs(mol)
-fig1 = SimilarityMaps.GetSimilarityMapFromWeights(mol, [x for x, y in contribs1], colorMap='jet',contourLines=10)
+
 
 
 col1, col2 = st.columns(2)
