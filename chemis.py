@@ -17,7 +17,8 @@ st.title('RDKit + Py3DMOL 😀')
 smiles=st.text_input('SMILES please','CC')
 mol = Chem.MolFromSmiles(smiles)
 img = Draw.MolToImage(mol)
+name = "mole"
 
 mol_wt = round(Descriptors.MolWt(mol), 4)
 st.write(f'Peso molecular: {mol_wt}')
-st.image(img, use_column_width=True, caption=f'Imagen en 2D de la estructura de la molécula {iupac_name}')
+st.image(img, use_column_width=True, caption=f'Imagen en 2D de la estructura de la molécula {name}')
