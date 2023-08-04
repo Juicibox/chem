@@ -48,10 +48,7 @@ def visualize_molecule():
                 st.image(img, use_column_width=True, caption=f'Imagen en 2D de la estructura de la molécula {iupac_name}')
                 st.pyplot(fig)
                 st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Imagen de las cargas parciales de Gasteiger para la molécula {iupac_name}</h2>", unsafe_allow_html=True)
-                st.pyplot(fig1)
-                st.markdown(
-                    f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Imagen de las contribuciones de Crippen para la solubilidad (logP) para la molécula {iupac_name}</h2>",
-                    unsafe_allow_html=True)
+              
 
             with col2:
                 mol_wt = round(Descriptors.MolWt(mol), 4)
