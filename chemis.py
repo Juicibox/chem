@@ -15,4 +15,4 @@ st.title('RDKit + Py3DMOL 😀')
 
 compound_smiles=st.text_input('SMILES please','CC')
 
-st.writer(compound_smiles)
+
