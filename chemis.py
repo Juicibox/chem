@@ -31,9 +31,9 @@ col1, col2 = st.columns(2)
 with col1:
 
   st.image(img, use_column_width=True, caption=f'Imagen en 2D de la estructura de la molécula {name}')
-  st.pyplot(fig)
+ 
   st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Imagen de las cargas parciales de Gasteiger para la molécula {name}</h2>", unsafe_allow_html=True)
-  st.pyplot(fig1)
+
   st.markdown(
       f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Imagen de las contribuciones de Crippen para la solubilidad (logP) para la molécula {name}</h2>",
       unsafe_allow_html=True)
