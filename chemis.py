@@ -13,7 +13,12 @@ from rdkit.Chem import Draw
 from rdkit.Chem.Draw import SimilarityMaps
 
 st.title('RDKit + Py3DMOL 😀')
-
+def iupac_to_smiles(iupac_name):
+    result = pcp.get_compounds(iupac_name, 'name')
+    if result:
+        return result[0].isomeric_smiles
+    else:
+        return None
 
 smiles=st.text_input('SMILES please','CC')
 mol = Chem.MolFromSmiles(smiles)
