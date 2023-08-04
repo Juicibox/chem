@@ -13,6 +13,8 @@ from rdkit.Chem.Draw import SimilarityMaps
 st.title('RDKit + Py3DMOL 😀')
 
 
-compound_smiles=st.text_input('SMILES please','CC')
+smiles=st.text_input('SMILES please','CC')
+mol = Chem.MolFromSmiles(smiles)
 
-
+mol_wt = round(Descriptors.MolWt(mol), 4)
+st.write(f'Peso molecular: {mol_wt}')
