@@ -1,6 +1,6 @@
 import streamlit as st
 import py3Dmol
-import pubchempy as pcp
+
 from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit.Chem import Lipinski, Descriptors
