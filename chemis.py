@@ -12,7 +12,7 @@ from rdkit.Chem import AllChem
 from rdkit.Chem import Draw
 from rdkit.Chem.Draw import SimilarityMaps
 
-st.title('RDKit + Py3DMOL 😀')
+
 def iupac_to_smiles(iupac_name):
     result = pcp.get_compounds(iupac_name, 'name')
     if result:
