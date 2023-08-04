@@ -1,5 +1,5 @@
 import streamlit as st
-from stmol import showmol
+
 import py3Dmol
 from rdkit import Chem
 from rdkit.Chem import AllChem
