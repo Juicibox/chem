@@ -29,7 +29,7 @@ def iupac_to_smiles(iupac_name):
         return None
 
 def visualize_molecule():
-    st.title("Propiedades y Vizualización de Moléculas ⚗️")
+    st.title("Propiedades de Solubilidad y Vizualización de Moléculas ⚗️")
 
     # Casilla de entrada para el nombre en IUPAC
     iupac_name = st.text_input("Ingrese el nombre IUPAC en inglés", value='Glucose')
