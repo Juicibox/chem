@@ -37,6 +37,7 @@ def visualize_molecule():
     if iupac_name:
         # Convertir el nombre en IUPAC a SMILES utilizando la función iupac_to_smiles
         smiles = iupac_to_smiles(iupac_name)
+        cid = iupac_to_cid(iupac_name)
 
         if smiles:
             # Visualizar la molécula correspondiente utilizando la función visualize_molecule
