@@ -32,7 +32,7 @@ def visualize_molecule():
     st.title("Visualización de moléculas")
 
     # Casilla de entrada para el nombre en IUPAC
-    iupac_name = st.text_input("Ingrese el nombre IUPAC en inglés")
+    iupac_name = st.text_input("Ingrese el nombre IUPAC en inglés", value='Glucose')
 
     if iupac_name:
         # Convertir el nombre en IUPAC a SMILES utilizando la función iupac_to_smiles
@@ -101,21 +101,22 @@ def visualize_molecule():
         else:
             st.error("No se encontró una molécula para el nombre en IUPAC proporcionado.")
 
+def validate_non_empty_input(inputs):
+    return all(inputs)
 
-
-def chemical_balancing():
-    st.title("Balanceo")
+def balanceo_químico():
+    st.title("Balanceador de ecuaciones químicas 🧪")
     # Aquí puedes agregar tu lógica de balanceo químico
 
 def main():
     # Menú lateral
     st.sidebar.title("Opciones")
-    selected_option = st.sidebar.selectbox("Seleccione una opción", ["Visualización", "Balanceo químico"])
+    selected_option = st.sidebar.selectbox("Seleccione una opción", ["Solubilidad", "Balance Químico"])
 
-    if selected_option == "Visualización":
+    if selected_option == "Solubilidad":
         visualize_molecule()
-    elif selected_option == "Balanceo":
-        chemical_balancing()
+    elif selected_option == "Balance Químico":
+        balanceo_químico()
 
 if __name__ == '__main__':
     main()
