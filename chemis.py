@@ -53,9 +53,9 @@ def visualize_molecule():
 
             with col1:
 
-                st.image(img, use_column_width=True, caption=f'Imagen en 2D de la estructura de la molécula {iupac_name}')
+                st.image(img, use_column_width=True, caption=f'Imagen en 2D de la estructura de la molécula {iupac_name}.')
                 st.pyplot(fig)
-                st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Imagen de las cargas parciales de Gasteiger para la molécula de {iupac_name}</h2>", unsafe_allow_html=True)
+                st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Imagen de las cargas parciales de Gasteiger para la molécula de {iupac_name}.</h2>", unsafe_allow_html=True)
 
                 mole3d = py3Dmol.view(query='cid:' + str(cid))
                 mole3d.setStyle({'stick': {'color': 'spectrum'}})
@@ -108,7 +108,7 @@ def visualize_molecule():
 
         else:
             st.error("No se encontró una molécula para el nombre en IUPAC proporcionado.")
-    st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Modelo tridimensional de la molécula de {iupac_name} con su distribución de densidad electrónica </h2>", unsafe_allow_html=True)
+    st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Modelo tridimensional de la molécula de {iupac_name} con su distribución de densidad electrónica. </h2>", unsafe_allow_html=True)
 def validate_non_empty_input(inputs):
     return all(inputs)
 
