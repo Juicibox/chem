@@ -6,3 +6,5 @@ matplotlib
 chempy
 pubchempy
 PubChemPy
+ipython_genutils
+stmol
