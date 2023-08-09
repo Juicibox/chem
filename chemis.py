@@ -67,40 +67,40 @@ def visualize_molecule():
 
             with col2:
                 mol_wt = round(Descriptors.MolWt(mol), 4)
-                st.write(f'Peso molecular: {mol_wt}')
+                st.write(f"Peso molecular: <span style='font-weight: bold;'> {mol_wt} </span>", unsafe_allow_html=True)
 
                 num_atoms = mol.GetNumAtoms()
-                st.write(f'Número de átomos: {num_atoms}')
+                st.write(f"Número de átomos: <span style='font-weight: bold;'>{num_atoms}</span>", unsafe_allow_html=True)
 
                 num_bonds = mol.GetNumBonds()
                 st.write(f"Número de enlaces: <span style='font-weight: bold;'>{num_bonds}</span>", unsafe_allow_html=True)
 
                 num_acceptors = Lipinski.NumHAcceptors(mol)
-                st.write(f'Número de aceptores de enlaces de hidrógeno: {num_acceptors}')
+                st.write(f"Número de aceptores de enlaces de hidrógeno: <span style='font-weight: bold;'>{num_acceptors}</span>", unsafe_allow_html=True)
 
                 num_donors = Lipinski.NumHDonors(mol)
-                st.write(f'Número de donantes de enlaces de hidrógeno: {num_donors}')
+                st.write(f"Número de donantes de enlaces de hidrógeno: <span style='font-weight: bold;'>{num_donors}</span>", unsafe_allow_html=True)
 
                 num_rotatable_bonds = Lipinski.NumRotatableBonds(mol)
-                st.write(f'Número de enlaces giratorios: {num_rotatable_bonds}')
+                st.write(f"Número de enlaces giratorios:<span style='font-weight: bold;'> {num_rotatable_bonds}</span>", unsafe_allow_html=True)
 
                 num_aliphatic_rings = Lipinski.NumAliphaticRings(mol)
-                st.write(f'Número de anillos alifáticos: {num_aliphatic_rings}')
+                st.write(f"Número de anillos alifáticos:<span style='font-weight: bold;'> {num_aliphatic_rings}</span>", unsafe_allow_html=True)
 
                 num_aromatic_rings = Lipinski.NumAromaticRings(mol)
-                st.write(f'Número de anillos aromáticos: {num_aromatic_rings}')
+                st.write(f"Número de anillos aromáticos:<span style='font-weight: bold;'> {num_aromatic_rings}</span>", unsafe_allow_html=True)
 
                 fraction_csp3 = Lipinski.FractionCSP3(mol)
-                st.write(f'Proporción de átomos de carbono híbrido SP3: {fraction_csp3}')
+                st.write(f"Proporción de átomos de carbono híbrido SP3: <span style='font-weight: bold;'>{fraction_csp3}</span>", unsafe_allow_html=True)
 
                 inde_flex = round(Crippen.MolMR(mol),4)
-                st.write(f'Índice de refracción molar: {inde_flex}')
+                st.write(f"Índice de refracción molar:<span style='font-weight: bold;'> {inde_flex}</span>", unsafe_allow_html=True)
 
                 mol_log_p = round(Descriptors.MolLogP(mol),4)
-                st.write(f'Coeficiente de partición grasa-agua: {mol_log_p}')
+                st.write(f"Coeficiente de partición grasa-agua:<span style='font-weight: bold;'> {mol_log_p}</span>", unsafe_allow_html=True)
 
                 tpsa = round(Descriptors.TPSA(mol), 4)
-                st.write(f'Área de superficie del polo topológico: {tpsa}')
+                st.write(f"Área de superficie del polo topológico:<span style='font-weight: bold;'> {tpsa}</span>", unsafe_allow_html=True)
 
 
 
