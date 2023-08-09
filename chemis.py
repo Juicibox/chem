@@ -73,7 +73,7 @@ def visualize_molecule():
                 st.write(f'Número de átomos: {num_atoms}')
 
                 num_bonds = mol.GetNumBonds()
-                st.write(f'Número de enlaces: {num_bonds}')
+                st.write(f"Número de enlaces: <span style='font-weight: bold;'>{num_bonds}</span>", unsafe_allow_html=True)
 
                 num_acceptors = Lipinski.NumHAcceptors(mol)
                 st.write(f'Número de aceptores de enlaces de hidrógeno: {num_acceptors}')
