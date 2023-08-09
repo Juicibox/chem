@@ -55,7 +55,7 @@ def visualize_molecule():
 
                 st.image(img, use_column_width=True, caption=f'Imagen en 2D de la estructura de la molécula {iupac_name}')
                 st.pyplot(fig)
-                st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Imagen de las cargas parciales de Gasteiger para la molécula {iupac_name}</h2>", unsafe_allow_html=True)
+                st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Imagen de las cargas parciales de Gasteiger para la molécula de {iupac_name}</h2>", unsafe_allow_html=True)
 
                 mole3d = py3Dmol.view(query='cid:' + str(cid))
                 mole3d.setStyle({'stick': {'color': 'spectrum'}})
@@ -63,7 +63,7 @@ def visualize_molecule():
                 if st.button("Densidad Electrónica"):
                     mole3d.addSurface('MS', {'opacity': 0.7, 'colorscheme': {'gradient': 'rwb'}})
                 showmol(mole3d, height=500, width=800)
-                st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Modelo 3D de la molecula  {iupac_name}</h2>", unsafe_allow_html=True)
+                st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Modelo tridimensional de la molécula de {iupac_name} con su distribución de densidad electrónica </h2>", unsafe_allow_html=True)
 
             with col2:
                 mol_wt = round(Descriptors.MolWt(mol), 4)
