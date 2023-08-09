@@ -11,7 +11,15 @@ from rdkit.Chem import AllChem
 
 from rdkit.Chem import Draw
 from rdkit.Chem.Draw import SimilarityMaps
+from chempy import balance_stoichiometry
+from stmol import showmol
 
+def iupac_to_cid(iupac_name):
+    result = pcp.get_compounds(iupac_name, 'name')
+    if result:
+        return result[0].cid
+    else:
+        return None
 
 def iupac_to_smiles(iupac_name):
     result = pcp.get_compounds(iupac_name, 'name')
