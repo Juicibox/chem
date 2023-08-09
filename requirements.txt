@@ -3,5 +3,6 @@ Pillow
 py3Dmol
 stmol
 matplotlib
+chempy
 pubchempy
 PubChemPy
