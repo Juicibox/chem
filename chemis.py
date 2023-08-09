@@ -29,7 +29,7 @@ def iupac_to_smiles(iupac_name):
         return None
 
 def visualize_molecule():
-    st.title("Visualización de moléculas")
+    st.title("Propiedades y Vizualización de Moléculas ⚗️")
 
     # Casilla de entrada para el nombre en IUPAC
     iupac_name = st.text_input("Ingrese el nombre IUPAC en inglés", value='Glucose')
@@ -113,7 +113,7 @@ def validate_non_empty_input(inputs):
     return all(inputs)
 
 def balanceo_químico():
-    st.title("Balanceador de ecuaciones químicas 🧪")
+    st.title("Balanceador de Ecuaciones Químicas 🧪")
     num_reactivos = st.number_input("Ingrese el número de reactivos:", min_value=1, step=1, value=2)
 
     reactivos = []
