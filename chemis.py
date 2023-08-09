@@ -106,7 +106,37 @@ def validate_non_empty_input(inputs):
 
 def balanceo_químico():
     st.title("Balanceador de ecuaciones químicas 🧪")
-    # Aquí puedes agregar tu lógica de balanceo químico
+    num_reactivos = st.number_input("Ingrese el número de reactivos:", min_value=1, step=1, value=2)
+
+    reactivos = []
+    cols = st.columns(num_reactivos)
+    for i in range(num_reactivos):
+        with cols[i]:
+            if i == 0:
+                reactivos.append(st.text_input(f"Reactivo {i + 1}", value="H2"))
+            elif i == 1:
+                reactivos.append(st.text_input(f"Reactivo {i + 1}", value="O2"))
+
+    num_productos = st.number_input("Ingrese el número de productos:", min_value=1, step=1, value=1)
+    productos = []
+    cols = st.columns(num_productos)
+    for n in range(num_productos):
+        with cols[n]:
+            productos.append(st.text_input(f"Producto {n + 1}", value="H2O"))
+
+    if st.button("Balancear"):
+        if validate_non_empty_input(reactivos) and validate_non_empty_input(productos):
+            reac, prod = balance_stoichiometry(reactivos, productos)
+            rx = dict(reac)
+            px = dict(prod)
+            reac_str = ' + '.join([f'{v} {k}' for k, v in rx.items()])
+            prod_str = ' + '.join([f'{v} {k}' for k, v in px.items()])
+            st.markdown(f"La reacción química balanceada queda:<br>"
+                        f"<span style='font-size: 20px;'>{reac_str}  :arrow_right: {prod_str}</span>",
+                        unsafe_allow_html=True)
+        else:
+            st.write("Ingrese al menos un reactivo y un producto para balancear la ecuación.")
+
 
 def main():
     # Menú lateral
