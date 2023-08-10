@@ -9,3 +9,4 @@ PubChemPy
 ipython_genutils
 stmol
 pandas
+scikit-learn
