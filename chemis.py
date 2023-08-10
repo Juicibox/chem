@@ -17,6 +17,18 @@ from stmol import showmol
 import pickle
 import pandas as pd
 
+with open('gb_model.pkl', 'rb') as f:
+    model = pickle.load(f)
+
+def AromaticAtoms(m):
+  aromatic_atoms = [m.GetAtomWithIdx(i).GetIsAromatic() for i in range(m.GetNumAtoms())]
+  aa_count = []
+  for i in aromatic_atoms:
+    if i == True:
+      aa_count.append(i)
+  sum_aa_count = sum(aa_count)
+  return sum_aa_count
+
 def iupac_to_cid(iupac_name):
     result = pcp.get_compounds(iupac_name, 'name')
     if result:
@@ -105,8 +117,18 @@ def visualize_molecule():
                 tpsa = round(Descriptors.TPSA(mol), 4)
                 st.write(f"Área de superficie del polo topológico:<span style='font-weight: bold;'> {tpsa}</span>", unsafe_allow_html=True)
 
-                #logs= 
-                st.write(f"Log de la solubilidad acuosa de Delaney (LogS):")
+                bo = Descriptors.NumRotatableBonds(mol)
+                atom_heav = Descriptors.HeavyAtomCount(mol)
+                atom_aroma = AromaticAtoms(mol)
+                aro_portion = atom_aroma / atom_heav
+
+                dat_logs = (mol_log_p, mol_wt, bo, aro_portion)
+                dat_logs = pd.DataFrame(dat_logs).T
+
+                st.write("Estimación de la solubilidad mendiante un modelo de machine learning: ")
+                logs = model.predict(dat_logs)
+                logs = logs[0] 
+                st.write(f"Log de la solubilidad acuosa de Delaney (LogS):<span style='font-weight: bold;'> {round(logs, 4)} mol/L </span>", unsafe_allow_html=True)
 
 
         else:
