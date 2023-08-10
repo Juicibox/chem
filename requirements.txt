@@ -9,4 +9,4 @@ PubChemPy
 ipython_genutils
 stmol
 pandas
-scikit-learn
+scikit-learn==1.2.2
