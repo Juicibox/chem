@@ -16,6 +16,7 @@ from stmol import showmol
 
 import pickle
 import pandas as pd
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 
 with open('gb_model.pkl', 'rb') as f:
     model = pickle.load(f)
