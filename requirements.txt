@@ -8,3 +8,4 @@ pubchempy
 PubChemPy
 ipython_genutils
 stmol
+pandas
