@@ -102,8 +102,8 @@ def visualize_molecule():
                 tpsa = round(Descriptors.TPSA(mol), 4)
                 st.write(f"Área de superficie del polo topológico:<span style='font-weight: bold;'> {tpsa}</span>", unsafe_allow_html=True)
 
-
-
+                #logs= 
+                st.write(f"Log de la solubilidad acuosa de Delaney (LogS):")
 
 
         else:
