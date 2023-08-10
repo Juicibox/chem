@@ -14,6 +14,9 @@ from rdkit.Chem.Draw import SimilarityMaps
 from chempy import balance_stoichiometry
 from stmol import showmol
 
+import pickle
+import pandas as pd
+
 def iupac_to_cid(iupac_name):
     result = pcp.get_compounds(iupac_name, 'name')
     if result:
