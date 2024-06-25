@@ -8,5 +8,6 @@ pubchempy
 PubChemPy
 ipython_genutils
 stmol
+numpy
 pandas
 scikit-learn==1.2.2
