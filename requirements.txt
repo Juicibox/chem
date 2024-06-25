@@ -3,7 +3,7 @@ Pillow
 py3Dmol
 stmol
 matplotlib
-chempy==0.8.3
+chempy==0.8.2
 pubchempy
 PubChemPy
 ipython_genutils
