@@ -1,4 +1,4 @@
-rdkit-pypi==2023.9.1
+rdkit-pypi====2022.9.5
 Pillow==10.1.0
 py3Dmol==2.0.4
 stmol
