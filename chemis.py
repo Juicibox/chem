@@ -18,6 +18,8 @@ import pickle
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 
+st.set_page_config(page_title="Chems", page_icon="logo.png")
+
 with open('gb_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
