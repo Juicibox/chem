@@ -39,13 +39,29 @@ def iupac_to_cid(iupac_name):
     else:
         return None
 
-def iupac_to_smiles(iupac_name):
+"""def iupac_to_smiles(iupac_name):
     result = pcp.get_compounds(iupac_name, 'name')
     if result:
         return result[0].isomeric_smiles
     else:
-        return None
+        return None """
 
+def iupac_to_smiles(iupac_name):
+    try:
+        result = pcp.get_compounds(iupac_name, 'name')
+        if result and result[0]:
+            compound = result[0]
+            if compound.isomeric_smiles:
+                return compound.isomeric_smiles
+            elif compound.canonical_smiles:
+                return compound.canonical_smiles
+            else:
+                return None
+        else:
+            return None
+    except Exception as e:
+        st.warning(f"Error al buscar la molécula: {str(e)}")
+        return None
 def visualize_molecule():
     st.title("Propiedades de Solubilidad y Vizualización de Moléculas ⚗️")
 
