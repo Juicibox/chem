@@ -96,7 +96,8 @@ def visualize_molecule():
 
             with col1:
 
-                st.image(img, use_column_width=True, caption=f'Imagen en 2D de la estructura de la molécula {iupac_name}.')
+                #st.image(img, use_column_width=True, caption=f'Imagen en 2D de la estructura de la molécula {iupac_name}.')
+                st.image(img, use_container_width=True, caption=f'Imagen en 2D de la estructura de la molécula {iupac_name}.')
                 st.pyplot(fig)
                 st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Imagen de las cargas parciales de Gasteiger para la molécula de {iupac_name}.</h2>", unsafe_allow_html=True)
 
