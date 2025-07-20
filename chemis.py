@@ -41,12 +41,6 @@ def iupac_to_cid(iupac_name):
     else:
         return None
 
-"""def iupac_to_smiles(iupac_name):
-    result = pcp.get_compounds(iupac_name, 'name')
-    if result:
-        return result[0].isomeric_smiles
-    else:
-        return None """
 
 def iupac_to_smiles(iupac_name):
     try:
