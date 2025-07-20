@@ -101,12 +101,12 @@ def visualize_molecule():
                 st.pyplot(fig)
                 st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Imagen de las cargas parciales de Gasteiger para la molécula de {iupac_name}.</h2>", unsafe_allow_html=True)
 
-                mole3d = py3Dmol.view(query='cid:' + str(cid))
-                mole3d.setStyle({'stick': {'color': 'spectrum'}})
-
-                if st.button("Densidad Electrónica"):
-                    mole3d.addSurface('MS', {'opacity': 0.7, 'colorscheme': {'gradient': 'rwb'}})
-                showmol(mole3d, height=500, width=800)
+            mole3d = py3Dmol.view(query='cid:' + str(cid))
+            mole3d.setStyle({'stick': {'color': 'spectrum'}})
+    
+            if st.button("Densidad Electrónica"):
+                mole3d.addSurface('MS', {'opacity': 0.7, 'colorscheme': {'gradient': 'rwb'}})
+            showmol(mole3d, height=500, width=800)
                 #st.markdown(f"<h2 style='text-align: center; color: #a0a0a0; font-size: 13px;'>Modelo tridimensional de la molécula de {iupac_name} con su distribución de densidad electrónica </h2>", unsafe_allow_html=True)
 
             with col2:
