@@ -13,7 +13,7 @@ from rdkit.Chem import Draw
 from rdkit.Chem.Draw import SimilarityMaps
 from chempy import balance_stoichiometry
 from stmol import showmol
-
+import requests
 import pickle
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
@@ -50,25 +50,28 @@ def iupac_to_cid(iupac_name):
 
 def iupac_to_smiles(iupac_name):
     try:
-        # Primer intento por nombre
+        # Intentar primero con PubChemPy
         result = pcp.get_compounds(iupac_name, 'name')
         if result and result[0]:
-            smiles = result[0].isomeric_smiles or result[0].canonical_smiles
-            if smiles:
-                return smiles
-
-        # Si falla, intenta obtener el CID y buscar por CID
-        cid_result = pcp.get_compounds(iupac_name, 'name')
-        if cid_result:
-            cid = cid_result[0].cid
-            compound_by_cid = pcp.Compound.from_cid(cid)
-            smiles = compound_by_cid.canonical_smiles
-            return smiles
-        return None
+            compound = result[0]
+            if compound.isomeric_smiles:
+                return compound.isomeric_smiles
+            elif compound.canonical_smiles:
+                return compound.canonical_smiles
+        
+        # Fallback: usar REST API para obtener ConnectivitySMILES
+        url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{iupac_name}/property/ConnectivitySMILES/TXT"
+        response = requests.get(url)
+        if response.status_code == 200:
+            smiles = response.text.strip()
+            return smiles if smiles else None
+        else:
+            return None
 
     except Exception as e:
-        st.warning(f"Error al obtener la molécula: {e}")
+        st.warning(f"No se pudo obtener el SMILES: {str(e)}")
         return None
+
 
 def visualize_molecule():
     st.title("Propiedades de Solubilidad y Vizualización de Moléculas ⚗️")
