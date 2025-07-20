@@ -20,6 +20,9 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 
 st.set_page_config(page_title="Chems", page_icon="logo.png")
 
+
+iupac_name = st.text_input("Ingrese el nombre IUPAC en inglés", value='Caffeine')
+
 with open('gb_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
