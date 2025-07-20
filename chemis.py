@@ -21,7 +21,6 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 st.set_page_config(page_title="Chems", page_icon="logo.png")
 
 
-iupac_name = st.text_input("Ingrese el nombre IUPAC en inglés", value='Caffeine')
 
 with open('gb_model.pkl', 'rb') as f:
     model = pickle.load(f)
@@ -79,6 +78,10 @@ def visualize_molecule():
         if smiles:
             # Visualizar la molécula correspondiente utilizando la función visualize_molecule
             mol = Chem.MolFromSmiles(smiles)
+            #new
+            if mol is None:
+                st.error("SMILES obtenido, pero no se pudo convertir a molécula RDKit.")
+                return
             img = Draw.MolToImage(mol)
 
             AllChem.ComputeGasteigerCharges(mol)
